@@ -1,81 +1,59 @@
 export function DashboardPreview() {
+  const line =
+    "M8 132 C48 128, 88 122, 128 116 S196 104, 236 96 S300 78, 348 70 S410 58, 452 60 C470 61, 484 56, 492 48 C498 42, 500 34, 502 24"
+
   return (
-    <div className="relative mx-auto h-[420px] w-full max-w-xl sm:h-[460px]">
-      <article className="absolute top-0 left-0 w-[68%] rounded-3xl bg-white p-5 shadow-[0_20px_50px_rgba(15,40,80,0.08)]">
-        <p className="text-xs text-muted-foreground">Transaction graphic</p>
-        <p className="mt-3 text-sm font-semibold text-ink">
-          Today $2,418,903.40
-        </p>
-        <p className="text-sm font-semibold text-ink">
-          Yesterday $4,102,550.18
-        </p>
-        <svg viewBox="0 0 280 90" className="mt-4 h-20 w-full" aria-hidden="true">
-          <polyline
+    <div className="float-card relative mx-auto w-full max-w-[540px] pb-7">
+      <article className="rounded-[30px] bg-white px-7 pt-7 pb-5 shadow-[0_22px_50px_rgba(30,60,110,0.10)]">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[15px] font-medium text-[#8b95a3]">Today</p>
+            <p className="mt-1.5 text-[1.85rem] leading-none font-bold tracking-tight text-[#121826] sm:text-[2rem]">
+              $3,631,973.91
+            </p>
+            <p className="mt-2.5 text-[15px] text-[#8b95a3]">Yesterday $5,719,568.90</p>
+          </div>
+          <div className="rounded-[22px] bg-[#0c2340] px-5 py-3.5 text-center text-white">
+            <p className="text-xl leading-none font-bold tracking-tight">99.99%</p>
+            <p className="mt-1.5 text-xs font-medium text-white/75">Success rate</p>
+          </div>
+        </div>
+        <svg viewBox="0 0 520 168" className="mt-3 h-44 w-full" aria-hidden="true">
+          <defs>
+            <linearGradient id="chart-stroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#7ec4ff" />
+              <stop offset="100%" stopColor="#3b93ea" />
+            </linearGradient>
+            <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#b9dcff" stopOpacity="0.7" />
+              <stop offset="55%" stopColor="#d7ecff" stopOpacity="0.28" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <line x1="24" y1="52" x2="496" y2="52" stroke="#e4edf5" strokeWidth="1.25" />
+          <line x1="24" y1="78" x2="496" y2="78" stroke="#e4edf5" strokeWidth="1.25" />
+          <line x1="24" y1="104" x2="496" y2="104" stroke="#e4edf5" strokeWidth="1.25" />
+          <path d={`${line} L502 158 L8 158 Z`} fill="url(#chart-fill)" />
+          <path
+            d={line}
             fill="none"
-            stroke="#32b9ff"
-            strokeWidth="3"
-            points="0,70 30,62 55,66 80,40 110,48 140,28 170,36 200,18 230,30 260,14 280,22"
-          />
-          <polyline
-            fill="none"
-            stroke="#9ecff5"
-            strokeWidth="3"
-            points="0,78 40,74 80,70 120,64 160,68 200,58 240,60 280,52"
+            stroke="url(#chart-stroke)"
+            strokeWidth="2.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            pathLength="480"
+            className="chart-line"
           />
         </svg>
       </article>
-
-      <article className="absolute top-6 right-0 w-[42%] rounded-3xl bg-white p-4 shadow-[0_16px_40px_rgba(15,40,80,0.08)]">
-        <p className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="inline-flex size-5 items-center justify-center rounded-full bg-sky/15 text-[10px] text-sky">
-            $
-          </span>
-          Amount of Success
+      <div className="absolute inset-x-4 bottom-0 flex items-center justify-between gap-4">
+        <p className="rounded-full bg-[#0c2340] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_22px_rgba(12,35,64,0.28)]">
+          Sales $4,351,420.67
         </p>
-        <p className="mt-3 text-lg font-semibold text-ink">$4,280,116.04</p>
-        <p className="text-xs text-success">$3,102,440.12 Total payment</p>
-      </article>
-
-      <article className="absolute top-[210px] left-6 w-[62%] rounded-3xl bg-white p-5 shadow-[0_20px_50px_rgba(15,40,80,0.08)]">
-        <p className="text-sm font-semibold text-ink">Partner</p>
-        <p className="mt-1 text-xs text-muted-foreground">
-          Trusted by growing merchants worldwide
+        <p className="rounded-full bg-[#0c2340] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_22px_rgba(12,35,64,0.28)]">
+          Payouts $95,680.20
         </p>
-        <div className="mt-4 flex gap-2">
-          {["#32b9ff", "#7c5cbf", "#1ac475", "#f0a202", "#ef5b6a"].map(
-            (color) => (
-              <span
-                key={color}
-                className="size-8 rounded-full"
-                style={{ backgroundColor: color }}
-              />
-            )
-          )}
-        </div>
-      </article>
-
-      <article className="absolute right-2 bottom-16 w-[44%] rounded-3xl bg-white p-4 shadow-[0_16px_40px_rgba(15,40,80,0.08)]">
-        <p className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="inline-flex size-5 items-center justify-center rounded-full bg-rose-100 text-[10px] text-rose-500">
-            ↓
-          </span>
-          Payout
-        </p>
-        <p className="mt-3 text-lg font-semibold text-ink">$3,905,772.55</p>
-        <p className="text-xs text-success">$3,102,440.12 Total payment</p>
-      </article>
-
-      <article className="absolute bottom-2 left-[18%] flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,40,80,0.12)]">
-        <span className="inline-flex size-8 items-center justify-center rounded-full bg-success text-sm text-white">
-          ✓
-        </span>
-        <span>
-          <span className="block text-lg leading-none font-semibold text-ink">
-            99.99%
-          </span>
-          <span className="text-xs text-muted-foreground">Success rate</span>
-        </span>
-      </article>
+      </div>
     </div>
   )
 }

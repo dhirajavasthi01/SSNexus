@@ -24,10 +24,10 @@ export function PayInPage() {
 
   return (
     <>
-      <section className="overflow-hidden">
+      <section className="hero-canvas overflow-hidden">
         <div className={`${containerClass} grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24`}>
           <div>
-            <p className="text-sm font-medium text-sky">Global Payment Solutions</p>
+            <p className="eyebrow">Global Payment Solutions</p>
             <h1 className="mt-4 text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
               TAILORED <span className="text-sky">PAYMENT SOLUTIONS</span> FOR
               GLOBAL OPERATIONS
@@ -62,7 +62,7 @@ export function PayInPage() {
         </div>
       </section>
 
-      <section className="bg-navy text-white">
+      <section className="panel-navy text-white">
         <div className={`${containerClass} py-16`}>
           <h2 className="text-3xl font-semibold">Connect the World. Serve the Globe.</h2>
           <p className="mt-4 max-w-2xl leading-7 text-white/75">
@@ -80,10 +80,10 @@ export function PayInPage() {
               key={stat.label}
               className={
                 stat.tone === "solid"
-                  ? "rounded-3xl bg-sky p-5 text-white"
+                  ? "btn-brand rounded-3xl p-5 text-white"
                   : stat.tone === "soft"
-                    ? "rounded-3xl bg-[#8fd4ff] p-5 text-white"
-                    : "rounded-3xl bg-white p-5 text-ink shadow-sm"
+                    ? "rounded-3xl bg-gradient-to-b from-[#9fd4ff] to-[#5eb4f5] p-5 text-white"
+                    : "stat-card rounded-3xl p-5 text-ink"
               }
             >
               <p className="text-3xl font-semibold">{stat.value}</p>
@@ -103,16 +103,16 @@ export function PayInPage() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className={`${containerClass} grid gap-8 py-16 lg:grid-cols-2`}>
-          <article>
+      <section>
+        <div className={`${containerClass} grid gap-4 py-16 lg:grid-cols-2`}>
+          <article className="solution-card rounded-3xl p-6">
             <h2 className="text-2xl font-semibold">Popular Local APMs</h2>
             <p className="mt-3 leading-7 text-ink/70">
               Offer local bank transfers, virtual accounts, e-wallets, QR
               payments, and payment links alongside cards.
             </p>
           </article>
-          <article>
+          <article className="solution-card rounded-3xl p-6">
             <h2 className="text-2xl font-semibold">Multi-Platform Compatibility</h2>
             <p className="mt-3 leading-7 text-ink/70">
               The same checkout works on iOS, Android, web, and mobile web, so

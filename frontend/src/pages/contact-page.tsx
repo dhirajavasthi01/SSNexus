@@ -19,9 +19,10 @@ export function ContactPage() {
   }
 
   return (
-    <section className={`${containerClass} grid gap-12 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-24`}>
+    <section className="hero-canvas">
+      <div className={`${containerClass} grid gap-12 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-24`}>
       <div>
-        <p className="text-sm font-medium text-sky">Global Payment Solutions</p>
+        <p className="eyebrow">Global Payment Solutions</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
           Contact Us
         </h1>
@@ -33,7 +34,7 @@ export function ContactPage() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="rounded-3xl bg-white p-6 shadow-[0_16px_40px_rgba(15,40,80,0.06)] sm:p-8"
+        className="solution-card rounded-3xl p-6 sm:p-8"
       >
         {submitted ? (
           <p className="text-base leading-7 text-ink">
@@ -45,7 +46,13 @@ export function ContactPage() {
           <div className="grid gap-5">
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" required className="h-11 bg-white" />
+              <Input
+                id="name"
+                name="name"
+                required
+                placeholder="Jane Cooper"
+                className="h-11 bg-white"
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="email">Work email</Label>
@@ -54,23 +61,37 @@ export function ContactPage() {
                 name="email"
                 type="email"
                 required
+                placeholder="jane@company.com"
                 className="h-11 bg-white"
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="company">Company</Label>
-              <Input id="company" name="company" required className="h-11 bg-white" />
+              <Input
+                id="company"
+                name="company"
+                required
+                placeholder="Northwind Markets"
+                className="h-11 bg-white"
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="message">How can we help?</Label>
-              <Textarea id="message" name="message" required rows={5} />
+              <Textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                placeholder="Tell us about your markets, monthly volume, and whether you need pay-in, payout, or both."
+              />
             </div>
-            <Button type="submit" className="h-11 rounded-full">
+            <Button type="submit" className="btn-brand h-11 rounded-full border-0">
               Enquire now
             </Button>
           </div>
         )}
       </form>
+      </div>
     </section>
   )
 }

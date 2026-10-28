@@ -36,16 +36,22 @@ export function LegalPage({ slug }: { slug: LegalSlug }) {
   usePageTitle(`${document.title} | ${appConfig.name}`)
 
   return (
-    <section className={`${containerClass} py-16 lg:py-24`}>
-      <p className="text-sm font-medium text-sky">Global Payment Solutions</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-tight">
-        {document.title}
-      </h1>
-      <div className="mt-6 max-w-3xl space-y-4 leading-7 text-ink/75">
-        {document.paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
-    </section>
+    <>
+      <section className="hero-canvas">
+        <div className={`${containerClass} py-16 lg:py-24`}>
+          <p className="eyebrow">Global Payment Solutions</p>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight">
+            {document.title}
+          </h1>
+        </div>
+      </section>
+      <section className={`${containerClass} py-16`}>
+        <div className="solution-card max-w-3xl space-y-4 rounded-3xl p-6 leading-7 text-ink/75 sm:p-8">
+          {document.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+    </>
   )
 }

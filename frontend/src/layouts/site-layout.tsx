@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header.tsx"
 
 export function SiteLayout() {
   return (
-    <div className="flex min-h-svh flex-col bg-ice text-ink">
+    <div className="flex min-h-svh flex-col bg-[#f7fbff] text-ink">
       <SiteHeader />
       <main className="flex-1">
         <Outlet />

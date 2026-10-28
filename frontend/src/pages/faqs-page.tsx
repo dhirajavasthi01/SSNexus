@@ -12,16 +12,21 @@ export function FaqsPage() {
   usePageTitle(`FAQs | ${appConfig.name}`)
 
   return (
-    <section className={`${containerClass} py-16 lg:py-24`}>
-      <p className="text-sm font-medium text-sky">Global Payment Solutions</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-        Frequently asked questions
-      </h1>
-      <p className="mt-4 max-w-2xl leading-7 text-ink/70">
-        Answers for teams evaluating pay-in, payout, and integration with{" "}
-        {appConfig.name}.
-      </p>
-      <Accordion className="mt-10 max-w-3xl rounded-3xl bg-white px-5 py-2 shadow-sm">
+    <>
+    <section className="hero-canvas">
+      <div className={`${containerClass} py-16 lg:py-24`}>
+        <p className="eyebrow">Global Payment Solutions</p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+          Frequently asked questions
+        </h1>
+        <p className="mt-4 max-w-2xl leading-7 text-ink/65">
+          Answers for teams evaluating pay-in, payout, and integration with{" "}
+          {appConfig.name}.
+        </p>
+      </div>
+    </section>
+    <section className={`${containerClass} py-16`}>
+      <Accordion className="solution-card max-w-3xl rounded-3xl px-5 py-2">
         {faqs.map((item) => (
           <AccordionItem key={item.question} value={item.question}>
             <AccordionTrigger className="text-base">
@@ -34,5 +39,6 @@ export function FaqsPage() {
         ))}
       </Accordion>
     </section>
+    </>
   )
 }

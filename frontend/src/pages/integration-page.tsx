@@ -29,25 +29,30 @@ export function IntegrationPage() {
   usePageTitle(`Integration | ${appConfig.name}`)
 
   return (
-    <section className={`${containerClass} py-16 lg:py-24`}>
-      <p className="text-sm font-medium text-sky">Global Payment Solutions</p>
-      <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
-        Integrate once. Operate in every market.
-      </h1>
-      <p className="mt-5 max-w-2xl leading-7 text-ink/70">
-        {appConfig.name} connects to your product through one API. Checkout,
-        payouts, and reporting share the same authentication model.
-      </p>
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
+    <>
+    <section className="hero-canvas">
+      <div className={`${containerClass} py-16 lg:py-24`}>
+        <p className="eyebrow">Global Payment Solutions</p>
+        <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Integrate once. Operate in every market.
+        </h1>
+        <p className="mt-5 max-w-2xl leading-7 text-ink/65">
+          {appConfig.name} connects to your product through one API. Checkout,
+          payouts, and reporting share the same authentication model.
+        </p>
+      </div>
+    </section>
+    <section className={`${containerClass} py-16`}>
+      <div className="grid gap-4 md:grid-cols-2">
         {steps.map((step, index) => (
-          <article key={step.title} className="rounded-3xl bg-white p-6 shadow-sm">
+          <article key={step.title} className="solution-card rounded-3xl p-6">
             <p className="text-sm font-semibold text-sky">0{index + 1}</p>
             <h2 className="mt-2 text-xl font-semibold">{step.title}</h2>
             <p className="mt-2 leading-7 text-ink/70">{step.description}</p>
           </article>
         ))}
       </div>
-      <pre className="mt-10 overflow-x-auto rounded-3xl bg-navy p-6 text-sm leading-6 text-white">
+      <pre className="panel-navy mt-10 overflow-x-auto rounded-3xl p-6 text-sm leading-6 text-white">
         <code>{`POST /v1/payments
 Authorization: Bearer sk_live_...
 
@@ -59,5 +64,6 @@ Authorization: Bearer sk_live_...
 }`}</code>
       </pre>
     </section>
+    </>
   )
 }

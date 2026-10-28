@@ -59,17 +59,19 @@ export function PayOutPage() {
 
   return (
     <>
-      <section className={`${containerClass} py-16 lg:py-24`}>
-        <p className="text-sm font-medium text-sky">Global Payment Solutions</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
-          365 Days Real-Time Payout Made Easy
-        </h1>
-        <p className="mt-5 max-w-2xl leading-7 text-ink/70">
-          Fast, secure disbursements for teams that need money to arrive the
-          way recipients expect. Your funds, on your schedule.
-        </p>
+      <section className="hero-canvas">
+        <div className={`${containerClass} py-16 lg:py-24`}>
+          <p className="eyebrow">Global Payment Solutions</p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
+            365 Days Real-Time Payout Made Easy
+          </h1>
+          <p className="mt-5 max-w-2xl leading-7 text-ink/65">
+            Fast, secure disbursements for teams that need money to arrive the
+            way recipients expect. Your funds, on your schedule.
+          </p>
+        </div>
       </section>
-      <section className="bg-white">
+      <section>
         <div className={`${containerClass} py-16`}>
           <h2 className="text-3xl font-semibold">Solutions</h2>
           <p className="mt-3 max-w-3xl leading-7 text-ink/70">
@@ -78,7 +80,7 @@ export function PayOutPage() {
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {solutions.map((item) => (
-              <article key={item.title} className="rounded-3xl bg-ice p-6">
+              <article key={item.title} className="solution-card rounded-3xl p-6">
                 <h3 className="text-lg font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-ink/70">
                   {item.description}
@@ -96,7 +98,7 @@ export function PayOutPage() {
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {useCases.map((item) => (
-            <article key={item.title} className="rounded-3xl bg-white p-6 shadow-sm">
+            <article key={item.title} className="solution-card rounded-3xl p-6">
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="mt-2 text-sm leading-6 text-ink/70">
                 {item.description}

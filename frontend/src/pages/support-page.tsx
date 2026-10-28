@@ -26,18 +26,23 @@ export function SupportPage() {
   usePageTitle(`Support | ${appConfig.name}`)
 
   return (
-    <section className={`${containerClass} py-16 lg:py-24`}>
-      <p className="text-sm font-medium text-sky">Global Payment Solutions</p>
-      <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
-        Support that stays with the integration
-      </h1>
-      <p className="mt-5 max-w-2xl leading-7 text-ink/70">
-        {appConfig.name} support covers onboarding, live payments, and the
-        questions finance teams ask after launch.
-      </p>
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
+    <>
+    <section className="hero-canvas">
+      <div className={`${containerClass} py-16 lg:py-24`}>
+        <p className="eyebrow">Global Payment Solutions</p>
+        <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Support that stays with the integration
+        </h1>
+        <p className="mt-5 max-w-2xl leading-7 text-ink/65">
+          {appConfig.name} support covers onboarding, live payments, and the
+          questions finance teams ask after launch.
+        </p>
+      </div>
+    </section>
+    <section className={`${containerClass} py-16`}>
+      <div className="grid gap-4 md:grid-cols-3">
         {channels.map((item) => (
-          <article key={item.title} className="rounded-3xl bg-white p-6 shadow-sm">
+          <article key={item.title} className="solution-card rounded-3xl p-6">
             <h2 className="text-xl font-semibold">{item.title}</h2>
             <p className="mt-2 leading-7 text-ink/70">{item.description}</p>
           </article>
@@ -45,10 +50,11 @@ export function SupportPage() {
       </div>
       <Link
         to="/contact"
-        className="mt-8 inline-flex h-10 items-center rounded-full bg-sky px-5 text-sm font-medium text-white"
+        className="btn-brand mt-8 inline-flex h-10 items-center rounded-full px-5 text-sm font-medium"
       >
         Contact support
       </Link>
     </section>
+    </>
   )
 }

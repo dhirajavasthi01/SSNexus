@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils.ts"
 
 function linkClass(isActive: boolean) {
   return cn(
-    "text-sm font-medium text-ink/75 transition-colors hover:text-ink",
+    "text-sm font-medium text-ink/70 transition-colors hover:text-ink",
     isActive && "text-ink"
   )
 }
@@ -23,10 +23,10 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/70 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-6 px-4 sm:px-6 lg:justify-center lg:gap-12">
+    <header className="sticky top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur">
+      <div className="relative mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
           <NavLink to="/" end className={({ isActive }) => linkClass(isActive)}>
             Home
           </NavLink>
@@ -37,34 +37,44 @@ export function SiteHeader() {
           >
             <button
               type="button"
-              className="inline-flex items-center gap-1 text-sm font-medium text-ink/75 hover:text-ink"
+              className="inline-flex items-center gap-1 text-sm font-medium text-ink/70 transition-colors hover:text-ink"
               aria-expanded={solutionsOpen}
               onClick={() => setSolutionsOpen((open) => !open)}
             >
               Solution
-              <ChevronDown className="size-4" />
+              <ChevronDown
+                className={cn(
+                  "size-4 transition-transform duration-200",
+                  solutionsOpen && "rotate-180"
+                )}
+              />
             </button>
-            {solutionsOpen ? (
-              <div className="absolute top-full left-1/2 z-20 w-48 -translate-x-1/2 pt-3">
-                <div className="rounded-2xl bg-white p-2 shadow-xl ring-1 ring-black/5">
-                  {solutionLinks.map((link) => (
-                    <NavLink
-                      key={link.to}
-                      to={link.to}
-                      onClick={closeMenus}
-                      className={({ isActive }) =>
-                        cn(
-                          "block rounded-xl px-3 py-2 text-sm text-ink/80 hover:bg-ice hover:text-ink",
-                          isActive && "bg-ice text-ink"
-                        )
-                      }
-                    >
-                      {link.label}
-                    </NavLink>
-                  ))}
-                </div>
+            <div
+              className={cn(
+                "absolute top-full left-1/2 z-20 w-52 -translate-x-1/2 pt-3 transition-all duration-200",
+                solutionsOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible -translate-y-1 opacity-0"
+              )}
+            >
+              <div className="rounded-2xl bg-white p-2 shadow-xl ring-1 ring-black/5">
+                {solutionLinks.map((link) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    onClick={closeMenus}
+                    className={({ isActive }) =>
+                      cn(
+                        "block rounded-xl px-3 py-2 text-sm text-ink/80 transition-colors hover:bg-ice hover:text-ink",
+                        isActive && "bg-ice text-ink"
+                      )
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
               </div>
-            ) : null}
+            </div>
           </div>
           {pageLinks.slice(1).map((link) => (
             <NavLink
@@ -76,6 +86,20 @@ export function SiteHeader() {
             </NavLink>
           ))}
         </nav>
+        <div className="hidden items-center gap-3 lg:flex">
+          <NavLink
+            to="/login"
+            className={({ isActive }) => linkClass(isActive)}
+          >
+            Login
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className="rounded-full bg-navy px-4 py-2 text-sm font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#01345c]"
+          >
+            Contact us
+          </NavLink>
+        </div>
         <button
           type="button"
           className="inline-flex size-10 items-center justify-center rounded-full text-ink lg:hidden"
@@ -86,7 +110,7 @@ export function SiteHeader() {
         </button>
       </div>
       {menuOpen ? (
-        <div className="border-t border-ice bg-white px-4 py-4 lg:hidden">
+        <div className="border-t border-black/5 bg-white px-4 py-4 lg:hidden">
           <div className="flex flex-col gap-1">
             <NavLink
               to="/"
@@ -119,6 +143,20 @@ export function SiteHeader() {
                 {link.label}
               </NavLink>
             ))}
+            <NavLink
+              to="/login"
+              onClick={closeMenus}
+              className="rounded-xl px-3 py-2 text-sm font-medium"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/contact"
+              onClick={closeMenus}
+              className="mt-2 rounded-full bg-navy px-4 py-2 text-center text-sm font-medium text-white"
+            >
+              Contact us
+            </NavLink>
           </div>
         </div>
       ) : null}
