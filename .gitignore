@@ -1,0 +1,11 @@
+node_modules
+dist
+_ref
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example
+.vite
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
