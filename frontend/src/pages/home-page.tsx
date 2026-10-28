@@ -43,11 +43,6 @@ const solutions = [
     description: "Instant, automated disbursements worldwide.",
     to: "/pay-out",
   },
-  {
-    title: "Integration",
-    description: "Developer-friendly APIs and sandbox.",
-    to: "/integration",
-  },
 ]
 
 export function HomePage() {
@@ -74,12 +69,6 @@ export function HomePage() {
               >
                 Enquire Now
                 <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                to="/integration"
-                className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-2.5 text-sm font-medium text-ink transition-transform duration-200 hover:-translate-y-0.5 hover:border-sky hover:text-sky"
-              >
-                View integration
               </Link>
             </div>
           </div>
@@ -177,7 +166,7 @@ export function HomePage() {
             Our Solutions
           </h2>
         </Reveal>
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
           {solutions.map((solution, index) => (
             <Reveal key={solution.title} delay={index * 90}>
               <article className="solution-card group flex h-full flex-col rounded-3xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">

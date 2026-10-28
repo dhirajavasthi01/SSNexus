@@ -10,15 +10,12 @@ const columns = [
     links: [
       { label: "Pay in", to: "/pay-in" },
       { label: "Pay out", to: "/pay-out" },
-      { label: "Integration", to: "/integration" },
-      { label: "Security", to: "/security" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", to: "/about" },
-      { label: "FAQs", to: "/faqs" },
       { label: "Blog", to: "/blog" },
       { label: "Contact us", to: "/contact" },
     ],
