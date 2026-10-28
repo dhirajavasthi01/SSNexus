@@ -1,6 +1,6 @@
-# SSNexus
+# SS Nexus
 
-SSNexus is a frontend-first project for static web pages. The frontend is ready to develop. The backend folder is reserved for a later technology choice and has no implementation yet.
+SS Nexus is a frontend-first project for static web pages. The frontend is ready to develop. The backend folder is reserved for a later technology choice and has no implementation yet.
 
 ## Project structure
 
@@ -122,7 +122,7 @@ cp .env.example .env.local
 
 | Variable | Purpose |
 | --- | --- |
-| `VITE_APP_NAME` | Name shown in the page shell. Defaults to `SSNexus`. |
+| `VITE_APP_NAME` | Name shown in the page shell. Defaults to `SS Nexus`. |
 
 The backend example at `backend/.env.example` is a placeholder and currently defines no variables.
 

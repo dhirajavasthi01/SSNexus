@@ -1,4 +1,4 @@
-const defaultAppName = "SSNexus"
+const defaultAppName = "SS Nexus"
 
 function readAppName() {
   const configuredName = import.meta.env.VITE_APP_NAME?.trim()
