@@ -1,0 +1,42 @@
+name: Backend
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: ssnexus
+          POSTGRES_PASSWORD: ssnexus
+          POSTGRES_DB: ssnexus
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ssnexus"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements-dev.txt
+      - name: Unit tests
+        run: pytest
+      - name: Migrate PostgreSQL
+        working-directory: backend
+        env:
+          ENVIRONMENT: development
+          DATABASE_URL: postgresql+psycopg://ssnexus:ssnexus@127.0.0.1:5432/ssnexus
+          SECRET_KEY: ci-secret-key-with-more-than-32-characters
+          ADMIN_EMAIL: admin@example.com
+          ADMIN_PASSWORD: ci-admin-password
+          COOKIE_SECURE: "false"
+        run: alembic upgrade head

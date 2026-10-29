@@ -6,6 +6,10 @@ _ref
 .env
 .env.*
 !.env.example
+server/data/*.json
+backend/.venv
+backend/.env
+backend/.pgdata
 .vite
 tsconfig.app.tsbuildinfo
 tsconfig.node.tsbuildinfo

@@ -12,6 +12,7 @@ import { PrimaryButton } from '@/components/common/PrimaryButton'
 const defaults: ContactFormValues = {
   fullName: '',
   email: '',
+  phone: '',
   company: '',
   country: '',
   solution: 'pay-in',
@@ -22,7 +23,7 @@ const defaults: ContactFormValues = {
 
 export function ContactForm() {
   const { t } = useI18n()
-  const [status, setStatus] = useState<'idle' | 'success' | 'unconfigured' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorText, setErrorText] = useState('')
   const {
     register,
@@ -42,10 +43,6 @@ export function ContactForm() {
       reset(defaults)
       return
     }
-    if (result.status === 'unconfigured') {
-      setStatus('unconfigured')
-      return
-    }
     setErrorText(result.message)
     setStatus('error')
   }
@@ -57,6 +54,9 @@ export function ContactForm() {
       </Field>
       <Field label={t('form.email')} error={errors.email?.message} htmlFor="email">
         <Input id="email" type="email" autoComplete="email" {...register('email')} />
+      </Field>
+      <Field label={t('form.phone')} error={errors.phone?.message} htmlFor="phone">
+        <Input id="phone" type="tel" autoComplete="tel" {...register('phone')} />
       </Field>
       <div className="grid gap-5 md:grid-cols-2">
         <Field label={t('form.company')} error={errors.company?.message} htmlFor="company">
@@ -94,11 +94,6 @@ export function ContactForm() {
       {status === 'success' ? (
         <p className="rounded-xl bg-emerald-50 px-4 py-3 text-emerald-800" role="status">
           {t('form.success')}
-        </p>
-      ) : null}
-      {status === 'unconfigured' ? (
-        <p className="rounded-xl bg-amber-50 px-4 py-3 text-amber-900" role="status">
-          {t('form.unconfigured')}
         </p>
       ) : null}
       {status === 'error' ? (

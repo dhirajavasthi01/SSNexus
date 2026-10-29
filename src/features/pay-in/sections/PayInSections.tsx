@@ -21,9 +21,12 @@ export function PayInHero() {
             {t('payin.h1a')} <span className="text-[#00b3ff]">{t('payin.h1b')}</span> {t('payin.h1c')}
           </h1>
           <p className="mt-4 max-w-[540px] text-[18px] leading-7 text-[#666]">{t('payin.lead')}</p>
-          <PrimaryButton to="/contact" className="mt-9">
-            {t('cta.enquire')}
-          </PrimaryButton>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <PrimaryButton to="/pay/collect">Collect in AED</PrimaryButton>
+            <PrimaryButton to="/contact" variant="outline">
+              {t('cta.enquire')}
+            </PrimaryButton>
+          </div>
         </div>
         <div className="relative h-[420px] lg:h-[560px]">
           <div className="absolute left-1/2 top-[18%] size-[250px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_30%_30%,#ffffff,#9fd8ff_42%,#1d6dff_78%)] shadow-[0_30px_60px_rgba(29,109,255,0.25)] lg:size-[334px]" />

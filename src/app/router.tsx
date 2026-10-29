@@ -18,6 +18,13 @@ const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage').then((m
 const SustainabilityPage = lazy(() => import('@/pages/SustainabilityPage').then((module) => ({ default: module.SustainabilityPage })))
 const TermsPage = lazy(() => import('@/pages/TermsPage').then((module) => ({ default: module.TermsPage })))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage })))
+const UaePayInFlowPage = lazy(() => import('@/pages/UaePayInFlowPage').then((module) => ({ default: module.UaePayInFlowPage })))
+const UaePayOutFlowPage = lazy(() => import('@/pages/UaePayOutFlowPage').then((module) => ({ default: module.UaePayOutFlowPage })))
+const UaeActivityPage = lazy(() => import('@/pages/UaeActivityPage').then((module) => ({ default: module.UaeActivityPage })))
+const AdminLoginPage = lazy(() => import('@/pages/AdminLoginPage').then((module) => ({ default: module.AdminLoginPage })))
+const AdminContactsPage = lazy(() => import('@/pages/AdminContactsPage').then((module) => ({ default: module.AdminContactsPage })))
+const AdminContactPage = lazy(() => import('@/pages/AdminContactPage').then((module) => ({ default: module.AdminContactPage })))
+const AdminPaymentsPage = lazy(() => import('@/pages/AdminPaymentsPage').then((module) => ({ default: module.AdminPaymentsPage })))
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +34,11 @@ export const router = createBrowserRouter([
       { index: true, element: <LazyPage><HomePage /></LazyPage> },
       { path: 'pay-in', element: <LazyPage><PayInPage /></LazyPage> },
       { path: 'pay-out', element: <LazyPage><PayOutPage /></LazyPage> },
+      { path: 'pay/collect', element: <LazyPage><UaePayInFlowPage /></LazyPage> },
+      { path: 'pay/collect/:id', element: <LazyPage><UaePayInFlowPage /></LazyPage> },
+      { path: 'pay/disburse', element: <LazyPage><UaePayOutFlowPage /></LazyPage> },
+      { path: 'pay/disburse/:id', element: <LazyPage><UaePayOutFlowPage /></LazyPage> },
+      { path: 'pay/activity', element: <LazyPage><UaeActivityPage /></LazyPage> },
       { path: 'integration', element: <LazyPage><IntegrationPage /></LazyPage> },
       { path: 'security', element: <LazyPage><SecurityPage /></LazyPage> },
       { path: 'about', element: <LazyPage><AboutPage /></LazyPage> },
@@ -35,6 +47,10 @@ export const router = createBrowserRouter([
       { path: 'blog', element: <LazyPage><BlogPage /></LazyPage> },
       { path: 'blog/:slug', element: <LazyPage><BlogArticlePage /></LazyPage> },
       { path: 'contact', element: <LazyPage><ContactPage /></LazyPage> },
+      { path: 'admin/login', element: <LazyPage><AdminLoginPage /></LazyPage> },
+      { path: 'admin/contacts', element: <LazyPage><AdminContactsPage /></LazyPage> },
+      { path: 'admin/contacts/:id', element: <LazyPage><AdminContactPage /></LazyPage> },
+      { path: 'admin/payments', element: <LazyPage><AdminPaymentsPage /></LazyPage> },
       { path: 'privacy-policy', element: <LazyPage><PrivacyPolicyPage /></LazyPage> },
       { path: 'sustainability', element: <LazyPage><SustainabilityPage /></LazyPage> },
       { path: 'terms', element: <LazyPage><TermsPage /></LazyPage> },

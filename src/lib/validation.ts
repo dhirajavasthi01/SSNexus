@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const contactSchema = z.object({
   fullName: z.string().trim().min(2, 'Enter your full name.'),
   email: z.string().trim().email('Enter a valid business email.'),
+  phone: z.string().trim().min(7, 'Enter a phone number.').max(32, 'Enter a shorter phone number.'),
   company: z.string().trim().min(2, 'Enter your company name.'),
   country: z.string().trim().min(2, 'Enter a country or region.'),
   solution: z.enum(['pay-in', 'pay-out', 'both', 'integration', 'other'], {

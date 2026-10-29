@@ -58,9 +58,12 @@ export function PayOutHero() {
             {t('payout.h1a')} <span className="text-[#00b3ff]">{t('payout.h1b')}</span> {t('payout.h1c')}
           </h1>
           <p className="mt-4 max-w-[580px] text-[18px] leading-7 text-[#666]">{t('payout.lead')}</p>
-          <PrimaryButton to="/contact" className="mt-9">
-            {t('cta.enquire')}
-          </PrimaryButton>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <PrimaryButton to="/pay/disburse">Send an AED payout</PrimaryButton>
+            <PrimaryButton to="/contact" variant="outline">
+              {t('cta.enquire')}
+            </PrimaryButton>
+          </div>
         </div>
         <PayoutVisual />
       </div>
