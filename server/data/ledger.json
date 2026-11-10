@@ -1,0 +1,45 @@
+{
+  "payments": [
+    {
+      "id": "uae_398ac494-aafe-4d13-8743-e496672f4b77",
+      "kind": "pay-in",
+      "amount": "100.00",
+      "currency": "AED",
+      "reference": "Dubai invoice 14",
+      "method": "google_pay",
+      "status": "recorded",
+      "message": "Google Pay in the UAE opens from the acquirer checkout. No acquirer is configured, so no wallet sheet was opened and no money moved.",
+      "createdAt": "2026-10-29T05:46:23.908Z",
+      "email": "payer@example.com",
+      "provider": "none"
+    },
+    {
+      "id": "uae_e141e699-6c37-4361-919a-52a57bd74481",
+      "kind": "pay-in",
+      "amount": "100.00",
+      "currency": "AED",
+      "reference": "asdas",
+      "method": "paypal",
+      "status": "recorded",
+      "message": "PayPal is not configured. The collection request was saved and no PayPal order was created.",
+      "createdAt": "2026-10-29T05:46:28.871Z",
+      "email": "dhirajavasthi1998@gmail.com",
+      "provider": "none"
+    },
+    {
+      "id": "uae_cb336c4d-7d95-42a4-b67c-47e03cfb36e1",
+      "kind": "pay-out",
+      "amount": "100.00",
+      "currency": "AED",
+      "reference": "Supplier payout",
+      "method": "uae_iban",
+      "status": "recorded",
+      "message": "The UAE IBAN was checked and the payout was saved. No bank transfer was sent because a licensed UAE payout provider is not configured.",
+      "createdAt": "2026-10-29T05:47:33.479Z",
+      "beneficiaryName": "Marina Trading LLC",
+      "destinationMasked": "AE07 •••• 3456",
+      "destinationFull": "AE070331234567890123456",
+      "provider": "none"
+    }
+  ]
+}
